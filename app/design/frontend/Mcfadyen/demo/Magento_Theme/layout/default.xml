@@ -1,0 +1,61 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <referenceContainer name="header.panel">
+            <block class="Magento\Framework\View\Element\Html\Links" name="header.links">
+                <arguments>
+                    <argument name="css_class" xsi:type="string">header links</argument>
+                </arguments>
+            </block>
+        </referenceContainer>
+        <referenceContainer name="footer">
+            <block class="Magento\Store\Block\Switcher" name="store_switcher" as="store_switcher" after="footer_links" template="Magento_Store::switch/stores.phtml"/>
+        </referenceContainer>
+        <referenceBlock name="report.bugs" remove="true"/>
+         <referenceContainer name="page.wrapper">
+            <block class="Magento\Framework\View\Element\Template" name="top.line" template="Magento_Theme::topline.phtml" before="-"/>
+        </referenceContainer>
+
+        <!-- <referenceContainer name="header.container">
+            <block class="Magento\Framework\View\Element\Template" name="header-contact" template="Magento_Theme::header-contact.phtml" before="minicart"/>
+        </referenceContainer> -->
+        <move element="copyright" destination="before.body.end"/>
+       <!--  <referenceContainer name="header.container">
+            <referenceBlock name="minicart" remove="true"/>
+        </referenceContainer> -->
+        <!-- <move element="register-link" destination="header-wrapper" after="minicart"/>
+        <move element="authorization-link" destination = "header-wrapper" before="minicart" /> -->
+        <move element="header.panel.wrapper" destination="header-wrapper" before="minicart" />
+        <referenceBlock name="register-link">
+            <arguments>
+                <argument name="label" xsi:type="string" translate="true">Register</argument>
+            </arguments>
+        </referenceBlock>
+        <referenceContainer name="header-wrapper">
+            <!-- <container name="header.panel.wishlist" label="Page Header Panel Wishlist" htmlTag="ul" htmlClass="wishlist-wrapper">
+                <block class="Magento\Wishlist\Block\Link" name="header-wishlist-desktop" template="Magento_Theme::header-wishlist.phtml" after="-"/>
+            </container> -->
+        </referenceContainer>
+        <referenceContainer name="footer-container">
+            <block class="Magento\Framework\View\Element\Template" name="live-chat" template="Magento_Theme::live-chat.phtml" />
+        </referenceContainer>
+
+        <referenceBlock name="catalog.compare.link" remove="true" />
+        <referenceBlock name="catalog.compare.sidebar" remove="true"/>
+        <referenceBlock name="catalogsearch.product.addto.compare" remove="true"/>
+        <referenceBlock name="category.product.addto.compare" remove="true"/>
+        <referenceBlock name="crosssell.product.addto.compare" remove="true" />
+        <referenceBlock name="related.product.addto.compare" remove="true" />
+        <referenceBlock name="upsell.product.addto.compare" remove="true" />
+        <referenceBlock name="view.addto.compare" remove="true" />
+
+        <referenceBlock name="catalogsearch.leftnav" remove="true" />
+        <referenceContainer name="catalog.leftnav" remove="true" />
+    </body>
+</page>

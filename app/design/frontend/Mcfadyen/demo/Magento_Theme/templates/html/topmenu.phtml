@@ -1,0 +1,27 @@
+<?php
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+
+/**
+ * Top menu for store
+ *
+ * @var $block \Magento\Theme\Block\Html\Topmenu
+ */
+
+$columnsLimit = $block->getColumnsLimit() ?: 0;
+$_menuHtml = $block->getHtml('level-top', 'submenu', $columnsLimit)
+?>
+
+<nav class="navigation" data-action="navigation">
+    <ul data-mage-init='{"menu":{"responsive":true, "expanded":true, "position":{"my":"left top","at":"left bottom"}}}'>
+        <?= /* @noEscape */ $_menuHtml?>
+        <?= $block->getChildHtml() ?>
+       <li class="mobile-only level0"><a href="/neelytraditionalacademy85233/about" target="_blank">About Us</a></li>
+	   <li class="mobile-only level0"><a href="/neelytraditionalacademy85233/contact" target="_blank">Contact</a></li>
+	   <li class="mobile-only level0"><a href="/neelytraditionalacademy85233/privacy-policy" target="_blank">Privacy Policy</a></li>
+		<li class="mobile-only level0"><a href="mailto:artome@gmail.com" target="_blank" class="top_last"><i class="fa fa-envelope" aria-hidden="true"></i>artome@gmail.com</a></li>
+		<li class="mobile-only level0"><a href="tel:(+800) 345 678" target="_blank" class="top_last"><i class="fa fa-phone" aria-hidden="true"></i>(+800) 345 678</a></li>
+    </ul>
+</nav>

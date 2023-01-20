@@ -1,0 +1,61 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<page layout="1column" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <move element="page.main.title" destination="product.info.main" before="-"/>
+        <move element="product.info.stock.sku" destination="product.info.price" after="product.price.final"/>
+        <move element="product.info.review" destination="product.info.main" before="product.info.price"/>
+
+        <move element="product.info.overview" destination="product.info.price" after="product.price.final"/>
+        <referenceBlock name="product.info.addtocart">
+            <container name="product.info.addto.social" htmlTag="div" htmlClass="moved-add-to-links" as="product_info_addto_social">
+            </container>
+        </referenceBlock>
+        <move element="product.info.addto" destination="product.info.form.content" after="-" />
+
+        <referenceContainer name="content">
+            <container name="product.info.left.social" htmlTag="div" htmlClass="product-left" before="product.info.main">
+                <block class="Magento\Cms\Block\Block" name="product_left">
+                    <arguments>
+                    <argument name="block_id" xsi:type="string">product_left</argument>
+                    </arguments>
+                </block>
+            </container>
+        </referenceContainer>
+
+        <referenceContainer name="product.info.main">
+            <block class="Magento\Cms\Block\Block" name="product_right" before="product.info.price">
+                <arguments>
+                <argument name="block_id" xsi:type="string">product_right</argument>
+                </arguments>
+            </block>
+        </referenceContainer>
+        
+
+        <move element="mp.SocialShare.InlineCart" destination="product.info.left.social" after="-" />
+
+        <referenceBlock name="product.info.details">
+            <referenceBlock name="reviews.tab">
+                <arguments>
+                    <argument name="priority" xsi:type="string">1</argument>
+                    <argument name="title" translate="true" xsi:type="string">Compliment the Artwork</argument>
+                </arguments>
+            </referenceBlock>
+            <referenceBlock name="product.info.description">
+                <arguments>
+                    <argument name="priority" xsi:type="string">2</argument>
+                </arguments>
+            </referenceBlock>
+            <referenceBlock name="product.attributes">
+                <arguments>
+                    <argument name="priority" xsi:type="string">3</argument>
+                </arguments>
+            </referenceBlock>
+        </referenceBlock>
+    </body>
+</page>
