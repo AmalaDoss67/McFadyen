@@ -1,0 +1,1 @@
+/var/www/html/McFadyen/lib/web/mage/collapsible.js
